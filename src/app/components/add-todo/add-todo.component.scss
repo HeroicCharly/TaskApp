@@ -1,0 +1,20 @@
+.button-space {
+  margin-top: 1em;
+}
+
+.custom-button {
+  height: 40px;
+  float: right;
+  margin-bottom: 4px;
+  margin-left: 5px;
+
+  &.custom-sucess {
+    width: 8em;
+  }
+}
+
+.custom-input-text {
+  height: 40px;
+  width: auto;
+  float: left;
+}

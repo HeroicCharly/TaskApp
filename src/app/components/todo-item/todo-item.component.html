@@ -1,0 +1,16 @@
+<div class="auto-height lower-border">
+    <div class="checkbox-container">
+        <div class="slide">
+            <input type="checkbox"
+                value="None"
+                [id]="todoItem.id"
+                name="check"
+                [checked]="todoItem.completionStatus"
+                (click)="todoStatusChanged()" />
+            <label [for]="todoItem.id"></label>
+        </div>
+    </div>
+    <div class="checkbox-text">
+        <label [ngClass]="todoItem.completionStatus?'strike-text':'normal-text'">{{todoItem.text}}</label>
+    </div>
+</div>

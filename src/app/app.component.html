@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"
+      style=" margin: 0 auto;">
+      <div class="row">
+        <div class="jumbotron todos-container">
+          <div class="custom-header">What I need To-Do</div>
+          <div class="date-spacing">{{currentDate | date}}</div>
+          <div class="float-right">
+            <button class="btn btn-info">
+              <label style="font-size:1em; margin:0;"
+                (click)="toggleListItems()">{{buttonText}}</label>
+            </button>
+          </div>
+        </div>
+        <div class="todos-container">
+          <todo-item *ngFor="let todoItem of todoList"
+            [todoItem]="todoItem"></todo-item>
+          <add-todo (todoCreated)="onTodoCreated($event)"></add-todo>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
