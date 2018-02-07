@@ -11,10 +11,14 @@
         #todo="ngModel"
         type="text"
         required
+        minlength="5"
         placeholder="Set your goal | task | reminder" />
 
       <div *ngIf="todo.errors && todo.touched">
         This field is required
+      </div>
+      <div *ngIf="todo.errors && todo.errors.minlength">
+        Minimum length must be 5 characters
       </div>
     </div>
     <button class="btn btn-danger custom-button"
