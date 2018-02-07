@@ -15,14 +15,12 @@ export class AddTodoComponent {
   todoText: string;
 
   saveTodo(): void {
-    if (this.todoText.length > 5) {
       let newTodo = new TodoElement();
       newTodo.text = this.todoText;
       newTodo.completionStatus = false;
 
       this.toggleInput();
       this.todoCreated.emit(newTodo);
-    }
   }
 
   toggleInput(): void {
