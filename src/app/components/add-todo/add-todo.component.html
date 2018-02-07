@@ -1,17 +1,26 @@
-<div class="button-space">
+<div class="add-todo">
   <div *ngIf="!displayInput">
     <button type="button"
       class="btn btn-primary"
       (click)="toggleInput()">[+] Add Todo</button>
   </div>
-  <div *ngIf="displayInput">
-    <input class="form-control custom-input-text"
-      [(ngModel)]="todoText"
-      type="text"
-      placeholder="Set your goal | task | reminder" />
+  <div *ngIf="displayInput" class="add-todo__container">
+    <div class="custom-error-format">
+      <input class="form-control custom-input-text"
+        [(ngModel)]="todoText"
+        #todo="ngModel"
+        type="text"
+        required
+        placeholder="Set your goal | task | reminder" />
+
+      <div *ngIf="todo.errors && todo.touched">
+        This field is required
+      </div>
+    </div>
     <button class="btn btn-danger custom-button"
       (click)="toggleInput()">Cancel</button>
-    <button class="btn btn-success custom-button custom-success"
-      (click)="saveTodo()">Add To-Do</button>
+    <button class="btn btn-success custom-button custom-button--success"
+      (click)="saveTodo()"
+      [disabled]="todo.errors">Add To-Do</button>
   </div>
 </div>

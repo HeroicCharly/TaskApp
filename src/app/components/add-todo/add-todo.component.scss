@@ -1,5 +1,9 @@
-.button-space {
+.add-todo {
   margin-top: 1em;
+
+  &__container {
+    display: flex;
+  }
 }
 
 .custom-button {
@@ -8,13 +12,22 @@
   margin-bottom: 4px;
   margin-left: 5px;
 
-  &.custom-sucess {
+  &--success {
     width: 8em;
   }
 }
 
 .custom-input-text {
   height: 40px;
-  width: auto;
-  float: left;
+  width: 100%;
+  display:block;
+}
+
+.custom-error-format{
+  display: block;
+  color: red;
+  flex: 1;
+  .error-message-format{
+    border-color:red;
+  }
 }

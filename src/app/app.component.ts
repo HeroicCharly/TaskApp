@@ -26,13 +26,13 @@ export class AppComponent {
 
   toggleListItems() {
     if (this.showCompleted) {
-      this.todoList = this.originalTodoList;
+      this.todoList = this.originalTodoList.filter(x => x.completionStatus == false);;
       this.showCompleted = false;
-      this.buttonText = 'Hide';
-    } else {
-      this.todoList = this.originalTodoList.filter(x => x.completionStatus == false);
-      this.showCompleted = true;
       this.buttonText = 'Show';
+    } else {
+      this.todoList = this.originalTodoList
+      this.showCompleted = true;
+      this.buttonText = 'Hide';
     }
   }
 
