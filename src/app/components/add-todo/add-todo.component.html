@@ -17,7 +17,7 @@
       <div *ngIf="todo.errors && todo.touched">
         This field is required
       </div>
-      <div *ngIf="todo.errors && todo.errors.minlength">
+      <div *ngIf="todo.errors && todo.errors['minlength']">
         Minimum length must be 5 characters
       </div>
     </div>
