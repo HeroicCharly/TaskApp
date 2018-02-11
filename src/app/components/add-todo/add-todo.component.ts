@@ -15,16 +15,22 @@ export class AddTodoComponent {
   todoText: string;
 
   saveTodo(): void {
-      let newTodo = new TodoElement();
-      newTodo.text = this.todoText;
-      newTodo.completionStatus = false;
+    let newTodo = new TodoElement();
+    newTodo.text = this.todoText;
+    newTodo.completionStatus = false;
 
-      this.toggleInput();
-      this.todoCreated.emit(newTodo);
+    this.toggleInput();
+    this.todoCreated.emit(newTodo);
   }
 
   toggleInput(): void {
     this.todoText = '';
     this.displayInput = !this.displayInput;
+  }
+
+  addButtonKeyPressed(keyCode) {
+    if (keyCode === 13) {
+      if (this.todoText.length > 5 && this.todoText !== undefined) this.saveTodo();
+    }
   }
 }

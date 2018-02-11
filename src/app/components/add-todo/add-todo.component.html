@@ -4,9 +4,11 @@
       class="btn btn-primary"
       (click)="toggleInput()">[+] Add Todo</button>
   </div>
-  <div *ngIf="displayInput" class="add-todo__container">
+  <div *ngIf="displayInput"
+    class="add-todo__container">
     <div class="custom-error-format">
       <input class="form-control custom-input-text"
+        (keypress)="addButtonKeyPressed($event.keyCode)"
         [(ngModel)]="todoText"
         #todo="ngModel"
         type="text"
