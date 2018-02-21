@@ -4,16 +4,17 @@
       class="btn btn-primary"
       (click)="toggleInput()">[+] Add Todo</button>
   </div>
-  <div *ngIf="displayInput"
+  <form *ngIf="displayInput"
+    (ngSubmit)="saveTodo()"
     class="add-todo__container">
     <div class="custom-error-format">
       <input class="form-control custom-input-text"
-        (keypress)="addButtonKeyPressed($event.keyCode)"
         [(ngModel)]="todoText"
         #todo="ngModel"
         type="text"
         required
         minlength="5"
+        name="todo"
         placeholder="Set your goal | task | reminder" />
 
       <div *ngIf="todo.errors && todo.touched">
@@ -24,9 +25,10 @@
       </div>
     </div>
     <button class="btn btn-danger custom-button"
+      type="button"
       (click)="toggleInput()">Cancel</button>
     <button class="btn btn-success custom-button custom-button--success"
-      (click)="saveTodo()"
+      type="submit"
       [disabled]="todo.errors">Add To-Do</button>
-  </div>
+  </form>
 </div>

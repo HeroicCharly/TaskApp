@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { Output } from '@angular/core/src/metadata/directives';
-import { EventEmitter } from '@angular/core/src/facade/async';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TodoElement } from './../../models/todo-element';
 
 @Component({
@@ -26,11 +24,5 @@ export class AddTodoComponent {
   toggleInput(): void {
     this.todoText = '';
     this.displayInput = !this.displayInput;
-  }
-
-  addButtonKeyPressed(keyCode) {
-    if (keyCode === 13) {
-      if (this.todoText.length > 5 && this.todoText !== undefined) this.saveTodo();
-    }
   }
 }
